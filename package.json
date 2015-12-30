@@ -1,7 +1,7 @@
 {
-	"name": "iris-service-replicator",
+	"name": "iris-service-xmlrpc-v1",
 	"version": "1.0.0",
-	"description": "couchbase replication controller service",
+	"description": "XML-RPC API iris v1 service",
 	"main": "index.js",
 	"scripts": {
 		"test": "mocha",
@@ -9,19 +9,19 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/sdk-group/iris-service-replicator.git"
+		"url": "git+https://github.com/sdk-group/iris-service-xmlrpc-v1.git"
 	},
 	"keywords": [
 		"iris",
-		"couchbase",
-		"xdcr"
+		"xmlrpc",
+		"v1"
 	],
 	"author": "...",
 	"license": "ISC",
 	"bugs": {
-		"url": "https://github.com/sdk-group/iris-service-replicator/issues"
+		"url": "https://github.com/sdk-group/iris-service-xmlrpc-v1/issues"
 	},
-	"homepage": "https://github.com/sdk-group/iris-service-replicator#readme",
+	"homepage": "https://github.com/sdk-group/iris-service-xmlrpc-v1#readme",
 	"devDependencies": {
 		"chai": "^3.3.0",
 		"gulp": "^3.9.0",

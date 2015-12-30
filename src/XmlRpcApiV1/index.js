@@ -55,7 +55,7 @@ let tasks = [{
 }]
 
 module.exports = {
-	module: require('./replicator.js'),
+	module: require('./xmlrpc.js'),
 	permissions: [],
 	tasks: tasks,
 	events: {
