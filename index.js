@@ -1,1 +1,1 @@
-module.exports = require("./build/Replicator");
+module.exports = require("./build/XmlRpcApiV1");
