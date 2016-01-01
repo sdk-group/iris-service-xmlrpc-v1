@@ -45,3 +45,5 @@ Temporary Items
 # Node
 node_modules
 build
+/nbproject/private/
+/nbproject/
