@@ -7,7 +7,7 @@ let emitter = require("global-queue");
 
 //REPLICATOR
 
-class Replicator {
+class XmlRpcV1 {
 	constructor() {
 		this.emitter = emitter;
 	}
@@ -17,9 +17,9 @@ class Replicator {
 
 	//API
 
-	TestMethod() {
-		return Promise.resolve("Hello world!");
+	TestMethod(name) {
+		return Promise.resolve("Hello " + name + "!");
 	}
 }
 
-module.exports = Replicator;
+module.exports = XmlRpcV1;
