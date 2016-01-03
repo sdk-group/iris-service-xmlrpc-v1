@@ -7,6 +7,9 @@ let events = {
 let tasks = [{
 	name: 'xmlrpc.v1.TestMethod',
 	handler: 'TestMethod'
+},{
+	name: 'xmlrpc.v1.TestLogin',
+	handler: 'TestLogin'
 }];
 
 module.exports = {
