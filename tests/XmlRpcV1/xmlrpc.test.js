@@ -64,11 +64,16 @@ describe("XmlRpcV1", () => {
 
 	describe("test call success", () => {
 		it("shall respond", (done) => {
-			client.methodCall('TestMethod', ['olegabr'], function (error, value) {
+			// Сначала надо обязательно залогиниться, либо использовать специальный токен для webwidget
+			client.methodCall('TestLogin', ['JohnDee', '123456', 'London'], function (error, value) {
 				expect(error).to.not.be.ok;
-				expect(value).to.equal('Hello olegabr!');
-				done();
+				expect(value).to.equal(true);
+				client.methodCall('TestMethod', ['olegabr'], function (error, value) {
+					expect(error).to.not.be.ok;
+					expect(value).to.equal('Hello olegabr!');
+					done();
+				});
 			});
 		});
-	})
+	});
 });
