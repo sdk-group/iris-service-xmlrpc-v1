@@ -1,3 +1,5 @@
+'use strict';
+
 let events = {
 	xmlrpc: {
 		test_method: 'xmlrpc.v1.TestMethod'
@@ -59,9 +61,9 @@ let tasks = [{
 	name: 'xmlrpc.v1.OperatorGetRequests',
 	handler: 'OperatorGetRequests'
 },
-	//
-	// Админка
-	//
+//
+// Админка
+//
 {
 	name: 'xmlrpc.v1.SettingsGet',
 	handler: 'SettingsGet'
@@ -72,9 +74,9 @@ let tasks = [{
 	name: 'xmlrpc.v1.ListRelServiceGroups',
 	handler: 'ListRelServiceGroups'
 },
-	//
-	// WEB-виджет
-	//
+//
+// WEB-виджет
+//
 {
 	name: 'xmlrpc.v1.ListOffices',
 	handler: 'ListOffices'
