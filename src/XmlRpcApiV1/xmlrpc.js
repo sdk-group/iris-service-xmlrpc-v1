@@ -217,7 +217,6 @@ class XmlRpcV1 {
 		let intPostponedRequest = this._checkPostponed();
 		let openedAndPostponedRequestsCount = this._getOpenedAndPostponedRequestsCount();
 		let intLastOfficeRequestId = this._getLastOfficeRequestId();
-		let strCalledRequest = this.OperatorNextRequest2();
 		// @TODO: время, оставшееся до автовызова следующего в очереди талона, если включен ункционал, иначе -1
 		let autoCallTimeout = -1;
 		// @TODO: вызвать следующий талон, если оператор свободен и бездействует дольше operator_auto_call_request_timeout
@@ -234,19 +233,19 @@ class XmlRpcV1 {
 			// когда этот результат был насчитан.
 			, "resultTimestamp": (new Date).getTime() / 1000
 
-			"requestId" => strCalledRequest['Id'], 
-			"requestHrId" => strCalledRequest['HrId'], 
-			"requestClientInfo" => strCalledRequest['ClientInfo'], 
-			"requestServiceName" => strCalledRequest['ServiceName'], 
-			"requestServiceId" => strCalledRequest['ServiceId'], 
-			"requestGlobalServiceId" => strCalledRequest['GlobalServiceId'], 
-			"requestServiceDesc" => strCalledRequest['ServiceShortDesc'], 
-			"requestState" => objCalledRequest ? objCalledRequest.StateId : -1,
-			"requestWaitTime" => strCalledRequest['waitTime'],
-			"requestServiceCount" => strCalledRequest['ServiceCount'],
-			"requestTimeLength" => strCalledRequest['ServiceTimeLength'],
-			"requestServiceRPGUCode" => strCalledRequest['serviceRPGUCode'],
-			"autoCallTimeout" => autoCallTimeout
+			, "requestId": strCalledRequest['Id'], 
+			"requestHrId": strCalledRequest['HrId'], 
+			"requestClientInfo": strCalledRequest['ClientInfo'], 
+			"requestServiceName": strCalledRequest['ServiceName'], 
+			"requestServiceId": strCalledRequest['ServiceId'], 
+			"requestGlobalServiceId": strCalledRequest['GlobalServiceId'], 
+			"requestServiceDesc": strCalledRequest['ServiceShortDesc'], 
+			"requestState": objCalledRequest ? objCalledRequest.StateId : -1,
+			"requestWaitTime": strCalledRequest['waitTime'],
+			"requestServiceCount": strCalledRequest['ServiceCount'],
+			"requestTimeLength": strCalledRequest['ServiceTimeLength'],
+			"requestServiceRPGUCode": strCalledRequest['serviceRPGUCode'],
+			"autoCallTimeout": autoCallTimeout
 		});
 	}
 	
@@ -458,25 +457,25 @@ class XmlRpcV1 {
 	ListOffices() {
 		// @TODO: 
 		let result = [{
-			Id: -1;
-			Name: "";
-			Address: "";
-			AtdId: -1;
-			BuildingId: -1; // Номер здания
-			Code: "";
-			CompanyId: -1;
-			CreepingLine: "";
-			ExtendedInfo: "";
-			IsHeadquarter: false;
-			LongDesc: "";
-			NotifierCode: "";
-			OperatorDisplayLogo: "";
-			RoomDisplayLogo: "";
-			SecretCode: ""; // ПИН-код офиса
-			ShortDesc: "";
-			TerminalFooter: "";
-			TerminalLogoTemplate: "";
-			TicketTemplate: "";
+			Id: -1,
+			Name: "",
+			Address: "",
+			AtdId: -1,
+			BuildingId: -1, // Номер здания
+			Code: "",
+			CompanyId: -1,
+			CreepingLine: "",
+			ExtendedInfo: "",
+			IsHeadquarter: false,
+			LongDesc: "",
+			NotifierCode: "",
+			OperatorDisplayLogo: "",
+			RoomDisplayLogo: "",
+			SecretCode: "", // ПИН-код офиса
+			ShortDesc: "",
+			TerminalFooter: "",
+			TerminalLogoTemplate: "",
+			TicketTemplate: "",
 		}];
 		return Promise.resolve(result);
 	}
@@ -485,25 +484,25 @@ class XmlRpcV1 {
 	ListWebOffices() {
 		// @TODO: 
 		let result = [{
-			Id: -1;
-			Name: "";
-			Address: "";
-			AtdId: -1;
-			BuildingId: -1; // Номер здания
-			Code: "";
-			CompanyId: -1;
-			CreepingLine: "";
-			ExtendedInfo: "";
-			IsHeadquarter: false;
-			LongDesc: "";
-			NotifierCode: "";
-			OperatorDisplayLogo: "";
-			RoomDisplayLogo: "";
-			SecretCode: ""; // ПИН-код офиса
-			ShortDesc: "";
-			TerminalFooter: "";
-			TerminalLogoTemplate: "";
-			TicketTemplate: "";
+			Id: -1,
+			Name: "",
+			Address: "",
+			AtdId: -1,
+			BuildingId: -1, // Номер здания
+			Code: "",
+			CompanyId: -1,
+			CreepingLine: "",
+			ExtendedInfo: "",
+			IsHeadquarter: false,
+			LongDesc: "",
+			NotifierCode: "",
+			OperatorDisplayLogo: "",
+			RoomDisplayLogo: "",
+			SecretCode: "", // ПИН-код офиса
+			ShortDesc: "",
+			TerminalFooter: "",
+			TerminalLogoTemplate: "",
+			TicketTemplate: "",
 		}];
 		return Promise.resolve(result);
 	}
@@ -575,48 +574,48 @@ class XmlRpcV1 {
 		// 
 		// Второй параметр содержит:
 //		// Номер услуги в БД
-//		'svcId' => $intServiceId
+//		'svcId': $intServiceId
 //		// Число дел
-//		, 'serviceCount' => $intServiceCount
+//		, 'serviceCount': $intServiceCount
 //		// ФИО посетителя
-//		, 'FIO' => 'Иванов Иван'
+//		, 'FIO': 'Иванов Иван'
 //		// время, на которое запрашивается запись, в формате чч:мм:сс
-//		, 'timeBegin' => $dttRecordDateTime->qFormat("hhhh:mm:ss")
+//		, 'timeBegin': $dttRecordDateTime->qFormat("hhhh:mm:ss")
 //		// дата, на которую запрашивается запись, в формате ГГГГ/ММ/ДД
-//		, 'dateBegin' => $dttRecordDateTime->qFormat("YYYY/MM/DD")
+//		, 'dateBegin': $dttRecordDateTime->qFormat("YYYY/MM/DD")
 //		// Продолжительность обслуживания по запрошенной услуге и числу дел, в секундах
-//		, 'timeLength' => 60 * $intRecordLength
+//		, 'timeLength': 60 * $intRecordLength
 //		// Тип записи: 0 - живая очередь (ЖО); 1 - предварительная запись (ПЗ)
-//		, 'type' => 1 // для WEB-виджета это всегда 1
+//		, 'type': 1 // для WEB-виджета это всегда 1
 		let strParams = params[1];
 		// @TODO: Создать талон в БД. Если не удалось, вернуть ошибку (кинуть исключение)
 		// иначе вернуть талон с полями:
-//		'OFFICE_CODE' => $officeCode
-//		, 'OFFICE_ADDRESS' => $officeAddress
-//		, 'TICKET_TYPE' => $req->Type->Name
-//		, '_TICKET_TYPE_ID' => $req->TypeId
-//		, '_TICKET_STATE_ID' => $req->StateId
+//		'OFFICE_CODE': $officeCode
+//		, 'OFFICE_ADDRESS': $officeAddress
+//		, 'TICKET_TYPE': $req->Type->Name
+//		, '_TICKET_TYPE_ID': $req->TypeId
+//		, '_TICKET_STATE_ID': $req->StateId
 //		// Не показывать это дело для талонов ПЗ (https://irisdev/iristrac/ticket/1713)
-//		, 'QUEUE_POSITION' => (1/* Живая очередь */ == $req->TypeId ? $intBestQueuePosition : '')
-//		, 'SVC_WINDOW_NUMBERS' => $strOperators
-//		, 'TICKET_CODE' => $req->Date->qFormat('YYYYMMDD') . "-" . $req->HrId
-//		, 'TICKET_REGISTRATION_DATE' => $strReqRegDate
-//		, 'TICKET_REGISTRATION_TIME' => $strReqRegTime
-//		, 'TICKET_DATE' => $strReqDate
-//		, 'TICKET_TIME' => $strReqTime
-//		, 'DATE' => $strNowDate
-//		, 'TIME' => $strNowTime
-//		, 'USER_NAME' => $req->ClientInfo
+//		, 'QUEUE_POSITION': (1/* Живая очередь */ == $req->TypeId ? $intBestQueuePosition : '')
+//		, 'SVC_WINDOW_NUMBERS': $strOperators
+//		, 'TICKET_CODE': $req->Date->qFormat('YYYYMMDD') . "-" . $req->HrId
+//		, 'TICKET_REGISTRATION_DATE': $strReqRegDate
+//		, 'TICKET_REGISTRATION_TIME': $strReqRegTime
+//		, 'TICKET_DATE': $strReqDate
+//		, 'TICKET_TIME': $strReqTime
+//		, 'DATE': $strNowDate
+//		, 'TIME': $strNowTime
+//		, 'USER_NAME': $req->ClientInfo
 //		//"['SVC_CODE','" . $svc->Code . "']," .
-//		, 'PRINT_TICKET_TIME' => 0
-//		, 'SVC_COUNT' => $req->ServiceCount
-//		, 'REQUEST_ID' => $req->Id
-//		, 'REQUEST_DATETIME' => $req->Date->qFormat('YYYY-MM-DD') . "T" . $req->TimeBegin->qFormat('hhhh:mm:ss')
-//		, 'OIV' => ($tmpOiv ? $tmpOiv->Name : '')
-//		, 'TICKET_ID' => $strTicketId
-//		, 'TICKET_ADD_TEXT' => QApplication::HtmlEntities(trim($strTicketAddText))
+//		, 'PRINT_TICKET_TIME': 0
+//		, 'SVC_COUNT': $req->ServiceCount
+//		, 'REQUEST_ID': $req->Id
+//		, 'REQUEST_DATETIME': $req->Date->qFormat('YYYY-MM-DD') . "T" . $req->TimeBegin->qFormat('hhhh:mm:ss')
+//		, 'OIV': ($tmpOiv ? $tmpOiv->Name : '')
+//		, 'TICKET_ID': $strTicketId
+//		, 'TICKET_ADD_TEXT': QApplication::HtmlEntities(trim($strTicketAddText))
 //		/* специальное служебное значение. используется для выбора шаблона талона */
-//		, 'DEPARTMENT_ID' => $intDepartmentId
+//		, 'DEPARTMENT_ID': $intDepartmentId
 //		// печать времени для талонов предвозаписи
 //		$strPrintCmd['PRINT_TICKET_TIME'] = 1;
 //		$strPrintCmd['SECRET_CODE'] = $req->SecretCode;
