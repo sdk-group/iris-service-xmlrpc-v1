@@ -485,6 +485,68 @@ class XmlRpcV1 {
 		return Promise.resolve(result);
 	}
 
+	// принимает номер офиса
+	// выставляет указанный офис текущим и возвращает объект этого офиса
+	GetOffice(params) {
+		if (!_.isArray(params) || params.length < 1) {
+			throw new Error('Failed to get office: bad params', 2 /* bad param*/);
+		}
+		let officeId = params[0];
+		// @TODO:
+		let result = {
+			Id: -1,
+			Name: "",
+			Address: "",
+			AtdId: -1,
+			BuildingId: -1, // Номер здания
+			Code: "",
+			CompanyId: -1,
+			CreepingLine: "",
+			ExtendedInfo: "",
+			IsHeadquarter: false,
+			LongDesc: "",
+			NotifierCode: "",
+			OperatorDisplayLogo: "",
+			RoomDisplayLogo: "",
+			SecretCode: "", // ПИН-код офиса
+			ShortDesc: "",
+			TerminalFooter: "",
+			TerminalLogoTemplate: "",
+			TicketTemplate: ""
+		};
+		return Promise.resolve(result);
+	}
+
+	// не ожидает параметров: возвращает номер текущего офиса, если есть.
+	GetCurrentOfficeId() {
+		// @TODO:
+		return null;
+	}
+
+	// принимает номер офиса
+	// выставляет указанный офис текущим
+	SetCurrentOfficeId(params) {
+		if (!_.isArray(params) || params.length < 1) {
+			throw new Error('Failed to get office: bad params', 2 /* bad param*/);
+		}
+		let officeId = params[0];
+		// @TODO:
+		return true;
+	}
+
+	// Отменяет талон с указанным секретным кодом.
+	// Принимает два параметра: номер офиса и строка - секретный код талона
+	// Возвращает номер отменённого талона, либо ошибку, если отменить талон не удалось
+	WithdrawRequest(params) {
+		if (!_.isArray(params) || params.length < 2) {
+			throw new Error('Failed to get office: bad params', 2 /* bad param*/);
+		}
+		let officeId = params[0];
+		let requestSecretCode = params[1];
+		// @TODO:
+		return null;
+	}
+
 	// не ожидает параметров: возвращает список офисов, для которых включена web-запись
 	ListWebOffices() {
 		// @TODO:

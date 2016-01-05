@@ -79,6 +79,18 @@ let tasks = [{
 	name: 'xmlrpc.v1.ListOffices',
 	handler: 'ListOffices'
 }, {
+	name: 'xmlrpc.v1.GetOffice',
+	handler: 'GetOffice'
+}, {
+	name: 'xmlrpc.v1.GetCurrentOfficeId',
+	handler: 'GetCurrentOfficeId'
+}, {
+	name: 'xmlrpc.v1.SetCurrentOfficeId',
+	handler: 'SetCurrentOfficeId'
+}, {
+	name: 'xmlrpc.v1.WithdrawRequest',
+	handler: 'WithdrawRequest'
+}, {
 	name: 'xmlrpc.v1.ListWebOffices',
 	handler: 'ListWebOffices'
 }, {
