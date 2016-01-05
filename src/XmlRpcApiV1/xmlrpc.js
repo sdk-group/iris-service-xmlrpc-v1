@@ -4,7 +4,6 @@ let _ = require("lodash");
 let qs = require("querystring");
 let request = Promise.promisify(require("request"));
 let emitter = require("global-queue");
-let auth = require(_base + "/Auth")
 
 //REPLICATOR
 
